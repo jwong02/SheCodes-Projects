@@ -1,0 +1,74 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.weather-app {
+  border: 1px solid gray;
+  border-radius: 15px;
+  margin: 45px auto;
+  padding: 35px 40px;
+  max-width: 550px;
+}
+
+.main-city {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.main-temp {
+  font-size: 30px;
+}
+
+.main-weather-icon {
+  margin: 0 -15px;
+  position: relative;
+  top: -10px;
+}
+
+.current-weather,
+.current-high-low {
+  font-weight: bold;
+}
+
+.current-weather {
+  position: relative;
+  top: -17px;
+}
+
+.search-form {
+  margin-bottom: 15px;
+}
+
+.weather-icon {
+  width: 35px;
+}
+
+.extended-forecast {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.weekdays {
+  font-weight: bold;
+}
+
+.low {
+  font-size: 12px;
+}
+
+.dates,
+.high {
+  font-size: 15px;
+}
+
+.units {
+  position: relative;
+  top: -10px;
+  left: -2px;
+  font-size: 15px;
+}
