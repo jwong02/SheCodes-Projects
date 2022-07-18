@@ -20,16 +20,32 @@ if (minutes < 10) {
 }
 dateElement.innerHTML = `${day} ${hours}:${minutes}`;
 
-//Display city on page
-function citySearch(event) {
+function displayTemp(response) {
+  document.querySelector(".main-city").innerHTML = response.data.name;
+  let currentTemp = Math.round(response.data.main.temp);
+  document.querySelector(".main-temp").innerHTML = `${currentTemp}`;
+  document.querySelector("#max-temp").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#min-temp").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
+}
+
+function search(city) {
+  let apiKey = "e37af8b7e5570ed34e9bd67d3c3d2d12";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayTemp);
+}
+
+function handleSubmit(event) {
   event.preventDefault();
-  let cityInput = document.querySelector("#city-input");
-  let mainCity = document.querySelector(".main-city");
-  mainCity.innerHTML = `${cityInput.value}`;
+  let city = document.querySelector("#city-input").value;
+  search(city);
 }
 
 let form = document.querySelector("#city-form");
-form.addEventListener("submit", citySearch);
+form.addEventListener("submit", handleSubmit);
 
 //Convert temperature
 function convertCelsius() {
@@ -47,3 +63,5 @@ function convertfahrenheit() {
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", convertfahrenheit);
+
+search("New York");

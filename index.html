@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Wireframe Project</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather API Project/title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -22,6 +23,7 @@
               <input
                 type="search"
                 placeholder="search for city"
+                autocomplete="off"
                 class="form-control"
                 id="city-input"
               />
@@ -33,7 +35,7 @@
         </form>
         <div class="row">
           <div class="col-6">
-            <span class="main-city">New York</span>
+            <span class="main-city"></span>
           </div>
         </div>
         <div class="row">
@@ -41,7 +43,7 @@
             <ul>
               <li id="current-date"></li>
               <li>
-                <span class="main-temp">60</span
+                <span class="main-temp"></span
                 ><span class="units">
                   <a href="#" id="fahrenheit">°F</a> |
                   <a href="#" id="celsius">°C</a>
@@ -51,8 +53,14 @@
           </div>
           <div class="col-4">
             <ul>
-              <li><span class="current-high-low">High:</span> 75°F</li>
-              <li><span class="current-high-low">Low:</span> 60°F</li>
+              <li>
+                <span class="current-high-low">High:</span>
+                <span id="max-temp"></span>°F
+              </li>
+              <li>
+                <span class="current-high-low">Low:</span>
+                <span id="min-temp"></span>°F
+              </li>
             </ul>
           </div>
           <div class="col-4">
